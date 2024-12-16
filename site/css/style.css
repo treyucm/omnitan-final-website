@@ -9069,6 +9069,12 @@ html.rd-navbar-fixed-linked .page {
   		background-repeat: no-repeat;
 	}
 }
+@media (max-width:446px) {
+	.team-swiper{
+		height:375px;
+		max-width: 330px
+	}
+}
 
 [data-isotope-layout].isotope--loaded [class*="col-"] {
 	opacity: 1;
