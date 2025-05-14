@@ -173,7 +173,7 @@
 					.trigger("scroll");
 			}
 		}
-
+		
 		// Isotope
 		if (plugins.isotope.length) {
 			var isogroup = [];
@@ -182,24 +182,23 @@
 					isotopeInitAttrs = {
 						itemSelector: '.isotope-item',
 						layoutMode: isotopeItem.getAttribute('data-isotope-layout') ? isotopeItem.getAttribute('data-isotope-layout') : 'masonry',
-						filter: '*'
+						filter: '*',
 					};
-
 				if (isotopeItem.getAttribute('data-column-width')) {
 					isotopeInitAttrs.masonry = {
-						columnWidth: parseFloat(isotopeItem.getAttribute('data-column-width'))
+						columnWidth: parseFloat(isotopeItem.getAttribute('data-column-width')),
 					};
 				} else if (isotopeItem.getAttribute('data-column-class')) {
 					isotopeInitAttrs.masonry = {
-						columnWidth: isotopeItem.getAttribute('data-column-class')
+						columnWidth: isotopeItem.getAttribute('data-column-class'),
 					};
 				}
-
+					isotopeInitAttrs.masonry = {
+						horizontalOrder : true,
+					}
 				var iso = new Isotope(isotopeItem, isotopeInitAttrs);
 				isogroup.push(iso);
 			}
-
-
 			setTimeout(function () {
 				for (var i = 0; i < isogroup.length; i++) {
 					isogroup[i].element.className += " isotope--loaded";
@@ -219,21 +218,27 @@
 					isotopeAttrs = {
 						itemSelector: '.isotope-item',
 						layoutMode: iso.attr('data-isotope-layout') ? iso.attr('data-isotope-layout') : 'masonry',
-						filter: this.getAttribute("data-isotope-filter") === '*' ? '*' : '[data-filter*="' + this.getAttribute("data-isotope-filter") + '"]'
+						filter: this.getAttribute("data-isotope-filter") === '*' ? '*' : '[data-filter*="' + this.getAttribute("data-isotope-filter") + '"]',
 					};
 				if (iso.attr('data-column-width')) {
 					isotopeAttrs.masonry = {
-						columnWidth: parseFloat(iso.attr('data-column-width'))
+						columnWidth: parseFloat(iso.attr('data-column-width')),
 					};
 				} else if (iso.attr('data-column-class')) {
 					isotopeAttrs.masonry = {
-						columnWidth: iso.attr('data-column-class')
+						columnWidth: iso.attr('data-column-class'),
 					};
 				}
 				iso.isotope(isotopeAttrs);
 			}).eq(0).trigger("click")
 		}
-
+		$('.isorow').isotope({
+			itemSelector: '.iso-item',
+			masonry: {
+				columnWidth: 100,
+				horizontalOrder:true,
+			}
+		});
 		// Material Parallax
 		if (plugins.materialParallax.length) {
 			if (!isNoviBuilder && !isIE && !isMobile) {
