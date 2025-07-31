@@ -1047,7 +1047,7 @@ a[href*='tel'], a[href*='mailto'] {
 .gallery-item {
 	position: relative;
 	display: block;
-	border-radius: 24px;	
+	border-radius: 12px;	
 	overflow: hidden;
 }
 
